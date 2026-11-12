@@ -25,19 +25,29 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+### Game Purpose
+Game Glitch Investigator is a number guessing game built using Python and Streamlit. Players select a difficulty level and try to guess a randomly generated number within a limited number of attempts. The game provides higher or lower hints and tracks the player's score.
+
+### Bugs Found
+I identified three bugs while testing the game:
+1. The game displayed incorrect higher/lower hints, sometimes telling players to guess lower even when they entered 1.
+2. After starting a new game, the Submit button stopped processing guesses because the game state wasn't properly reset.
+3. Changing the difficulty didn't update the displayed instructions to match the correct guessing range and attempt limit.
+
+### Fixes Applied
+I used GitHub Copilot to fix the first two bugs. I corrected the higher/lower comparison messages and improved how the game handles number types. I also updated the New Game functionality to properly reset the score, attempts, status, and guess history. Additionally, I refactored the game logic into `logic_utils.py` to make the code easier to maintain and test. I used pytest and manual testing to verify the changes.
 
 ## 📸 Demo Walkthrough
 
-Describe your fixed game in numbered steps so a reader can follow along without watching a video:
+## Demo Walkthrough
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User launches the game and selects Normal difficulty.
+2. User enters a guess of 40, and the game responds with "Too Low" and tells them to go higher.
+3. User enters a guess of 70, and the game responds with "Too High" and tells them to go lower.
+4. User continues guessing, and the score updates after each attempt.
+5. User guesses the correct number, and the game displays a winning message and final score.
+6. User clicks "New Game," which resets the score, attempts, and guess history.
+7. User can submit new guesses and receive feedback, confirming that the reset bug has been fixed.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
